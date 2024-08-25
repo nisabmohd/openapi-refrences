@@ -63,7 +63,19 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.line-number::before {
+  display: inline-block;
+  width: 1rem;
+  margin-right: 22px;
+  margin-left: -2px;
+  color: rgb(110, 110, 110);
+  content: attr(line);
+  font-size: 13.5px;
+  text-align: right;
 }
