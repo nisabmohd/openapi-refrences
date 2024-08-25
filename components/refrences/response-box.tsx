@@ -18,7 +18,7 @@ type ResponseBoxProps = {
 export default function ResponseBox({ responses }: ResponseBoxProps) {
   const [selectedStatusIndex, setSelectedStatusIndex] = useState(0);
   return (
-    <div className="w-[600px] border rounded-lg font-code">
+    <div className="xl:w-[600px] w-full border rounded-lg font-code">
       <div className="flex items-center gap-3.5 border-b px-4 py-2 font-sans">
         {responses.map((response, index) => (
           <span

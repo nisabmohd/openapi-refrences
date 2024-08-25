@@ -5,7 +5,7 @@ import { ChevronDownIcon } from "lucide-react";
 
 export default function Leftbar() {
   return (
-    <aside className="min-w-[300px]  flex flex-col justify-between h-full top-0 sticky">
+    <aside className="min-w-[300px] xl:flex hidden flex-col justify-between h-full top-0 sticky">
       <div className="p-5 px-6">
         <SearchCommand />
         <div className="flex flex-col gap-4 mt-5 ">

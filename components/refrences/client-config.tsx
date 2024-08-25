@@ -23,7 +23,7 @@ export default function ClientConfig() {
   }, [setData]);
 
   return (
-    <div className="border rounded-lg p-3 flex flex-col gap-2">
+    <div className="xl:w-[600px] w-full border rounded-lg p-3 flex flex-col gap-2">
       <div>
         <Label className="text-muted-foreground text-[13px]" htmlFor="url">
           Base URL

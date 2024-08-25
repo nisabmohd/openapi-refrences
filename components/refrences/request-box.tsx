@@ -71,7 +71,7 @@ export default function RequestBox({ endPoint, method, url }: RequestBoxProps) {
   }
 
   return (
-    <div className="w-[600px] border rounded-lg font-code">
+    <div className="xl:w-[600px] w-full border rounded-lg font-code">
       <div className="flex items-center justify-between border-b px-3 pr-2 py-1">
         <div className="flex items-center gap-2 text-sm">
           <span

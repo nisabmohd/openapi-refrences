@@ -15,11 +15,11 @@ export default function ReferencePage() {
           <Details />
         </div>
         <div className="px-12">
-          <div className="w-full mt-20 flex items-start justify-between gap-14 border-t py-24">
-            <div className="flex-grow">
+          <div className="w-full mt-20 flex xl:flex-row flex-col items-start justify-between gap-14 border-t py-24">
+            <div className="xl:flex-grow w-full">
               <Description />
             </div>
-            <div className="flex flex-col gap-4 mt-8">
+            <div className="flex flex-col gap-4 mt-8 w-full">
               <RequestBox
                 endPoint="/users"
                 method="get"
@@ -28,11 +28,11 @@ export default function ReferencePage() {
               <ResponseBox responses={dummyResponses} />
             </div>
           </div>
-          <div className="w-full mt-20 flex items-start justify-between gap-14 border-t py-24">
-            <div className="flex-grow">
+          <div className="w-full mt-20 flex xl:flex-row flex-col items-start justify-between gap-14 border-t py-24">
+            <div className="xl:flex-grow w-full">
               <Description />
             </div>
-            <div className="flex flex-col gap-4 mt-8">
+            <div className="flex flex-col gap-4 mt-8 w-full">
               <RequestBox
                 endPoint="/users"
                 method="get"
@@ -50,8 +50,8 @@ export default function ReferencePage() {
 //  Main details
 function Details() {
   return (
-    <div className="flex gap-14 items-start">
-      <div className="flex flex-col items-start gap-1.5 flex-grow">
+    <div className="flex gap-14 items-start xl:flex-row flex-col w-full">
+      <div className="flex flex-col items-start gap-1.5 xl:flex-grow w-full">
         <div className="flex items-center gap-1 mb-1">
           <Badge
             variant="secondary"
@@ -78,7 +78,7 @@ function Details() {
           (OpenAPI) documentation.
         </p>
       </div>
-      <div className=" w-[600px]">
+      <div className="w-full">
         <ClientConfig />
       </div>
     </div>
