@@ -25,9 +25,9 @@ export default function ResponseBox({ responses }: ResponseBoxProps) {
             onClick={() => setSelectedStatusIndex(index)}
             key={response.statusCode}
             className={cn(
-              "text-[13px] py-0.5 text-muted-foreground",
+              "text-[13px] py-0.5 pb-1 text-muted-foreground cursor-pointer",
               selectedStatusIndex == index &&
-                "border-b-2 border-primary font-medium text-primary"
+                "border-b-2 border-primary font-medium text-primary pb-0.5"
             )}
           >
             {response.statusCode}

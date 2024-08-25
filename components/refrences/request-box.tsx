@@ -34,7 +34,7 @@ export default function RequestBox({ endPoint, method, url }: RequestBoxProps) {
           <span className="text-muted-foreground">{endPoint}</span>
         </div>
         <Select defaultValue="js">
-          <SelectTrigger className="min-w-[80px] max-w-fit h-[30px] border-none mx-0 text-sm">
+          <SelectTrigger className="min-w-[80px] max-w-fit h-[30px] border-none mx-0 text-[13px]">
             <SelectValue placeholder="Language" />
           </SelectTrigger>
           <SelectContent className="font-code">

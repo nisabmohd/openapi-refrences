@@ -4,6 +4,7 @@ import RequestBox from "@/components/refrences/request-box";
 import ResponseBox from "@/components/refrences/response-box";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import ClientConfig from "@/components/refrences/client-config";
 
 export default function ReferencePage() {
   return (
@@ -14,7 +15,7 @@ export default function ReferencePage() {
           <Details />
         </div>
         <div className="px-12">
-          <div className="w-full mt-20 flex items-start justify-between gap-10 border-t py-24">
+          <div className="w-full mt-20 flex items-start justify-between gap-14 border-t py-24">
             <div className="flex-grow">
               <Description />
             </div>
@@ -27,7 +28,7 @@ export default function ReferencePage() {
               <ResponseBox responses={dummyResponses} />
             </div>
           </div>
-          <div className="w-full mt-20 flex items-start justify-between gap-10 border-t py-24">
+          <div className="w-full mt-20 flex items-start justify-between gap-14 border-t py-24">
             <div className="flex-grow">
               <Description />
             </div>
@@ -49,8 +50,8 @@ export default function ReferencePage() {
 //  Main details
 function Details() {
   return (
-    <div className="flex items-start">
-      <div className="flex flex-col items-start gap-1.5 flex-1">
+    <div className="flex gap-14 items-start">
+      <div className="flex flex-col items-start gap-1.5 flex-grow">
         <div className="flex items-center gap-1 mb-1">
           <Badge
             variant="secondary"
@@ -66,15 +67,20 @@ function Details() {
           </Badge>
         </div>
         <div className="text-2xl font-medium">Dummy API</div>
-        <Button variant="link" className="px-0 h-fit py-0 text-blue-600">
+        <Button
+          variant="link"
+          className="px-0 h-fit py-0 text-sky-600 text-[14px]"
+        >
           Download OpenAPI Spec
         </Button>
-        <p className="mt-2">
+        <p className="mt-1 text-muted-foreground text-[14.5px]">
           This is a dummy API used to demonstrate a comprehensive Swagger
           (OpenAPI) documentation.
         </p>
       </div>
-      <div className="flex-1"></div>
+      <div className=" w-[600px]">
+        <ClientConfig />
+      </div>
     </div>
   );
 }
