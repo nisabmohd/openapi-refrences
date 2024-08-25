@@ -10,26 +10,33 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { default_clients } from "./languages";
-import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { useClientContext } from "./client-context";
+import { useEffect } from "react";
 
 export default function ClientConfig() {
-  // this needs to be in context
-  const [selectedDefaultClient, setSelectedDefaultClient] = useState({
-    language: default_clients[0].language,
-    lib: default_clients[0].items[0].name,
-  });
+  const { selectedClient, baseUrl, token, setData } = useClientContext();
+
+  useEffect(() => {
+    // todo remove dummy server urls
+    setData({ baseUrl: dummy_server_urls[0].url });
+  }, [setData]);
+
   return (
     <div className="border rounded-lg p-3 flex flex-col gap-2">
       <div>
         <Label className="text-muted-foreground text-[13px]" htmlFor="url">
           Base URL
         </Label>
-        <Select defaultValue={dummy_server_urls[0].url}>
+        <Select
+          value={baseUrl!}
+          onValueChange={(val) => setData({ baseUrl: val })}
+        >
           <SelectTrigger className="h-8 justify-between">
             <SelectValue placeholder="Base URL" />
           </SelectTrigger>
           <SelectContent className="text-sm">
+            {/* todo remove dummy server urls */}
             {dummy_server_urls.map((server) => (
               <SelectItem
                 className="text-sm"
@@ -46,7 +53,14 @@ export default function ClientConfig() {
         <Label className="text-muted-foreground text-[13px]" htmlFor="token">
           Bearer Authentication
         </Label>
-        <Input id="token" type="password" placeholder="Token" className="h-8" />
+        <Input
+          id="token"
+          type="password"
+          value={token}
+          onChange={(e) => setData({ token: e.target.value })}
+          placeholder="Token"
+          className="h-8"
+        />
       </div>
       <div>
         <Label className="text-muted-foreground text-[13px]" htmlFor="clients">
@@ -56,15 +70,18 @@ export default function ClientConfig() {
           <div className="flex items-center gap-2 text-sm py-1.5 px-3">
             {default_clients.map((it) => (
               <div
+                key={it.language}
                 onClick={() =>
-                  setSelectedDefaultClient({
-                    language: it.language,
-                    lib: it.items[0].name,
+                  setData({
+                    selectedClient: {
+                      language: it.language,
+                      lib: it.items[0].name,
+                    },
                   })
                 }
                 className={cn(
                   "px-1 pb-1 text-center cursor-pointer",
-                  it.language == selectedDefaultClient.language &&
+                  it.language == selectedClient.language &&
                     "border-b-2 border-primary pb-0.5 font-medium"
                 )}
               >
@@ -72,7 +89,8 @@ export default function ClientConfig() {
               </div>
             ))}
           </div>
-          <div className="border-t text-[13.5px] px-3 py-2.5">{`${selectedDefaultClient.language}:${selectedDefaultClient.lib}`}</div>
+          {/* todo: more languages add */}
+          <div className="border-t text-[13.5px] px-3 py-2.5">{`${selectedClient.language}:${selectedClient.lib}`}</div>
         </div>
       </div>
     </div>

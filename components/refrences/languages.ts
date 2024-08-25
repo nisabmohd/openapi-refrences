@@ -1,22 +1,3 @@
-export const available_req_languages = [
-  {
-    name: "Java",
-    value: "java",
-  },
-  {
-    name: "Golang",
-    value: "gol",
-  },
-  {
-    name: "Python",
-    value: "py",
-  },
-  {
-    name: "JavaScript",
-    value: "js",
-  },
-];
-
 export const all_clients = [
   {
     language: "Shell",
@@ -68,7 +49,7 @@ export const all_clients = [
     ],
   },
   {
-    language: "HTTP",
+    language: "Http",
     items: [
       {
         name: "HTTP",
@@ -80,6 +61,14 @@ export const all_clients = [
     items: [
       {
         name: "net::http",
+      },
+    ],
+  },
+  {
+    language: "Node.js",
+    items: [
+      {
+        name: "Axios",
       },
     ],
   },

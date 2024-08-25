@@ -17,13 +17,7 @@ export function ModeToggle() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="w-full">
-          <SunIcon className="h-[1rem] w-[1rem] mr-2 scale-100 hidden dark:block" />
-          <MoonIcon className="dark:hidden h-[1rem] w-[1rem] mr-2" />
-          <span>Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger>Toggle theme</DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setTheme("light")}>
           Light

@@ -1,4 +1,12 @@
-import { createContext, PropsWithChildren, useContext, useState } from "react";
+"use client";
+
+import {
+  createContext,
+  PropsWithChildren,
+  useCallback,
+  useContext,
+  useState,
+} from "react";
 import { default_clients } from "./languages";
 
 type ClientContextValueType = {
@@ -8,6 +16,8 @@ type ClientContextValueType = {
   };
   baseUrl: string | null;
   token: string;
+  isClientTesterOpen: boolean;
+  // add new key `testClientMetadata` for testing api in client dialog
 };
 
 type ClientContextActionType = {
@@ -32,11 +42,12 @@ export function ClientContextProvider({ children }: PropsWithChildren) {
     },
     baseUrl: null,
     token: "",
+    isClientTesterOpen: false,
   });
 
-  function setData(data: Partial<ClientContextValueType>) {
+  const setData = useCallback(function (data: Partial<ClientContextValueType>) {
     setState((prev) => ({ ...prev, ...data }));
-  }
+  }, []);
 
   return (
     <ClientContext.Provider value={{ ...state, setData }}>
