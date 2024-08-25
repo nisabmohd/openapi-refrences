@@ -1,7 +1,7 @@
 import { cn, getColorForMethod, RequestMethod } from "@/lib/utils";
 import { ModeToggle } from "../theme-toggle";
 import { Input } from "../ui/input";
-import { ChevronDownIcon, ChevronsUpDownIcon } from "lucide-react";
+import { ChevronDownIcon } from "lucide-react";
 
 export default function Leftbar() {
   return (
